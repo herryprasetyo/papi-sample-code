@@ -22,7 +22,7 @@ Jika Anda sudah selesai melakukan testing dan sudah siap untuk go live di Produc
 2. Gunakan library javascript veritrans production di file `checkout.html`:
 
   ```
-  <script src=”https://api.veritrans.co.id/assets/js/all.js”></script>
+  <script src=”https://api.veritrans.co.id/assets/js/veritrans.js”></script>
   ```
 
 
