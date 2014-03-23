@@ -40,13 +40,13 @@
 		// Sandbox API URL. TODO: Change with Production API URL when you're ready to go live.
 		Veritrans.url = "https://api.sandbox.veritrans.co.id/v2/token";
 		// TODO: Change with your actual client key that can be found at Merchant Administration Portal >> Setting >> Access Key
-		Veritrans.client_key = "f768ae9b-1a43-4113-830c-3c0aea92616a";
+		Veritrans.client_key = "b937a339-234e-4e2f-8182-4e5391711555";
 		var card = function(){
 			return {
 				'card_number'		: $(".card-number").val(),
-				'card_exp_month'	: $(".card-expiry-month").val(),
-				'card_exp_year'		: $(".card-expiry-year").val(),
-				'card_cvv'			: $(".card-cvv").val(),
+				'card_exp_month': $(".card-expiry-month").val(),
+				'card_exp_year'	: $(".card-expiry-year").val(),
+				'card_cvv'			: $(".card-cvv").val()
 
 				// Set 'secure', 'bank', and 'gross_amount', if the merchant wants transaction to be processed with 3D Secure
 				// 'secure'				: true,

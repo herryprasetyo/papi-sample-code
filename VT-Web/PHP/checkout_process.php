@@ -1,6 +1,6 @@
 <?php
 // TODO: change with your actual server_key that can be found on Merchant Administration Portal (MAP)
-$server_key = "change-with-your-server-key";
+$server_key = "bc6fcc80-df58-4762-9efb-aa6cc2cb9d64";
 
 // TODO : change to production URL for your production Environment
 // sandbox/development/testing environment:
@@ -10,35 +10,35 @@ $endpoint = "https://api.sandbox.veritrans.co.id/v2/charge";
 
 
 $transaction_details = array(
-	'order_id' 		=> 'order3762',
+	'order_id' 			=> 'order3762',
 	'gross_amount' 	=> 200000
 );
 
 // Populate items
 $items = [
 	array(
-		'id' 		=> 'item1',
-		'price' 	=> 100000,
+		'id' 				=> 'item1',
+		'price' 		=> 100000,
 		'quantity' 	=> 1,
-		'name' 		=> 'Adidas f50'
+		'name' 			=> 'Adidas f50'
 	),
 	array(
-		'id'		=> 'item2',
-		'price' 	=> 50000,
+		'id'				=> 'item2',
+		'price' 		=> 50000,
 		'quantity' 	=> 2,
-		'name' 		=> 'Nike N90'
+		'name' 			=> 'Nike N90'
 	)
 ];
 
 // Populate customer's billing address
 $billing_address = array(
-	'first_name' 	=> "Andri",
-	'last_name' 	=> "Setiawan",
-	'address' 		=> "Karet Belakang 15A, Setiabudi.",
-	'city' 			=> "Jakarta",
+	'first_name' 		=> "Andri",
+	'last_name' 		=> "Setiawan",
+	'address' 			=> "Karet Belakang 15A, Setiabudi.",
+	'city' 					=> "Jakarta",
 	'postal_code' 	=> "51161",
-	'phone' 		=> "081322311801",
-	'country_code' 	=> 'IDN'
+	'phone' 				=> "081322311801",
+	'country_code'	=> 'IDN'
 	);
 
 // Populate customer's shipping address
@@ -46,33 +46,33 @@ $shipping_address = array(
 	'first_name' 	=> "John",
 	'last_name' 	=> "Watson",
 	'address' 		=> "Bakerstreet 221B.",
-	'city' 			=> "Jakarta",
-	'postal_code' 	=> "51162",
-	'phone' 		=> "081322311801",
-	'country_code' 	=> 'IDN'
+	'city' 				=> "Jakarta",
+	'postal_code' => "51162",
+	'phone' 			=> "081322311801",
+	'country_code'=> 'IDN'
 	);
 
 // Populate customer's Info
 $customer_details = array(
-	'first_name' 	=> "Andri",
-	'last_name' 	=> "Setiawan",
-	'email' 		=> "andrisetiawan@me.com",
-	'phone' 		=> "081322311801",
-	'billing_address'  => $billing_address,
-	'shipping_address' => $shipping_address
+	'first_name' 			=> "Andri",
+	'last_name' 			=> "Setiawan",
+	'email' 					=> "andrisetiawan@me.com",
+	'phone' 					=> "081322311801",
+	'billing_address' => $billing_address,
+	'shipping_address'=> $shipping_address
 	);
 
 // Data yang akan dikirim untuk request redirect_url.
 // Uncomment 'secure' => true jika transaksi ingin diproses dengan 3DSecure.
 $transaction_data = array(
 	'payment_type' 			=> 'vtweb', 
-	'vtweb' 			=> array(
+	'vtweb' 						=> array(
 		'enabled_payments' 	=> ['credit_card']
 	),
 	//'secure'				=> true,
-	'transaction_details' 	=> $transaction_details,
-	'item_details' 			=> $items,
-	'customer_details' 		=> $customer_details
+	'transaction_details'=> $transaction_details,
+	'item_details' 			 => $items,
+	'customer_details' 	 => $customer_details
 );
 
 $json_transaction_data = json_encode($transaction_data);

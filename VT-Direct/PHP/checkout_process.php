@@ -6,7 +6,7 @@ if(empty($_POST['token_id']))
 }
 
 // TODO: change with your actual server_key that can be found on Merchant Administration Portal (MAP)
-$server_key = "change-with-your-server-key";
+$server_key = "bc6fcc80-df58-4762-9efb-aa6cc2cb9d64";
 
 // TODO : change to production URL for your production Environment
 $endpoint = "https://api.sandbox.veritrans.co.id/v2/charge";
@@ -16,7 +16,7 @@ $endpoint = "https://api.sandbox.veritrans.co.id/v2/charge";
 $token_id = $_POST['token_id'];
 
 $transaction_details = array(
-	'order_id' 		=> 'order3752',
+	'order_id' 		=> time(),
 	'gross_amount' 	=> 200000
 );
 
@@ -63,7 +63,7 @@ $shipping_address = array(
 $customer_details = array(
 	'first_name' 	=> "Andri",
 	'last_name' 	=> "Setiawan",
-	'email' 		=> "andrisetiawan@me.com",
+	'email' 		=> "payment-api@veritrans.co.id",
 	'phone' 		=> "081322311801",
 	'billing_address'  => $billing_address,
 	'shipping_address' => $shipping_address
@@ -74,11 +74,12 @@ $transaction_data = array(
 	'payment_type' 			=> 'credit_card', 
 	'credit_card' 			=> array(
 		'token_id' 	=> $token_id,
-		'bank' 		=> 'bni'
+		'bank' 			=> 'bni',
+		'save_token_id'			=> isset($_POST['save_cc'])
 		),
 	'transaction_details' 	=> $transaction_details,
-	'item_details' 			=> $items,
-	'customer_details' 		=> $customer_details
+	'item_details' 					=> $items,
+	'customer_details' 			=> $customer_details
 );
 
 $json_transaction_data = json_encode($transaction_data);
@@ -141,5 +142,9 @@ else
 	echo "<h3>Response:</h3>";
 	var_dump($response);
 }
+
+echo "<hr />";
+echo "<h3>Request</h3>";
+var_dump($json_transaction_data);
 
 ?>
