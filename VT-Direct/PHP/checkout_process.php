@@ -6,7 +6,7 @@ if(empty($_POST['token_id']))
 }
 
 // TODO: change with your actual server_key that can be found on Merchant Administration Portal (MAP)
-$server_key = "bc6fcc80-df58-4762-9efb-aa6cc2cb9d64";
+$server_key = "";
 
 // TODO : change to production URL for your production Environment
 $endpoint = "https://api.sandbox.veritrans.co.id/v2/charge";
