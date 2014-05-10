@@ -7,31 +7,31 @@ $result = json_decode($json_result, true);
 error_log("Menerima notifikasi dari Veritrans: ");
 error_log($json_result);
 
-if($result->transaction_status == "capture")
+if($result->status_code == "200")
 {
-	//success
-	error_log("Status transaksi untuk order id ".$result->order_id.": ".$result->transaction_status);
+	//OK, trancaction is success
+	error_log("Status transaksi untuk order id ".$result->order_id.": ".$result->status_code);
 
-	//TODO: Update lokal database merchant. Misal: update status order.
+	//TODO: Update merchant's database (Ex: update status order).
 }
-else if($result->transaction_status == "deny")
+else if($result->status_code == "201")
 {
-	//deny
-	error_log("Status transaksi untuk order id ".$result->order_id.": ".$result->transaction_status);
+	//Pending, transaction is success but the processing has not been completed.
+	error_log("Status transaksi untuk order id ".$result->order_id.": ".$result->status_code);
 
-	//TODO: Update lokal database merchant. Misal: update status order.
+	//TODO: Update merchant's database (Ex: update status order).
 }
-else if($result->transaction_status == "challenge")
+else if($result->status_code == "202")
 {
-	//challenge
-	error_log("Status transaksi untuk order id ".$result->order_id.": ".$result->transaction_status);
+	//Denied, request is success but transaction is denied by bank or Veritrans fraud detection system.
+	error_log("Status transaksi untuk order id ".$result->order_id.": ".$result->status_code);
 
-	//TODO: Update lokal database merchant. Misal: update status order.
+	//TODO: Update merchant's database (Ex: update status order).
 }
 else
 {
-	//error
-	error_log("Terjadi kesalahan pada data transaksi yang dikirim.<br />");
+	//error. You can see all the possibilities of the status_code and the explanation on the Veritrans Payment API Documentation
+	error_log("Terjadi kesalahan. Status code: ".$result->status_code);
 }
 
 ?>
