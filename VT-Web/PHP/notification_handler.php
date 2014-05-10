@@ -9,21 +9,21 @@ error_log($json_result);
 
 if($result->status_code == "200")
 {
-	//OK, trancaction is success
+	//OK, transaction is success
 	error_log("Status transaksi untuk order id ".$result->order_id.": ".$result->status_code);
 
 	//TODO: Update merchant's database (Ex: update status order).
 }
 else if($result->status_code == "201")
 {
-	//Pending, transaction is success but the processing has not been completed.
+	//Pending or Challenged, transaction is success but the processing has not been completed.
 	error_log("Status transaksi untuk order id ".$result->order_id.": ".$result->status_code);
 
 	//TODO: Update merchant's database (Ex: update status order).
 }
 else if($result->status_code == "202")
 {
-	//Denied, request is success but transaction is denied by bank or Veritrans fraud detection system.
+	//Denied, request is success but transaction is denied by the bank or the fraud detection system.
 	error_log("Status transaksi untuk order id ".$result->order_id.": ".$result->status_code);
 
 	//TODO: Update merchant's database (Ex: update status order).
