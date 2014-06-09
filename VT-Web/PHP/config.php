@@ -2,7 +2,7 @@
 class Config
 {
 	// TODO: change with your actual server_key that can be found on Merchant Administration Portal (MAP)
-	const SERVER_KEY = "62b15a7d-e5f8-4b3c-9eab-ca827ca37f55";
+	const SERVER_KEY = "";
 
 
 	// TODO : change to production URL for your production Environment
