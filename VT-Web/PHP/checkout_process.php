@@ -10,7 +10,7 @@ $endpoint = "https://api.sandbox.veritrans.co.id/v2/charge";
 
 
 $transaction_details = array(
-	'order_id' 			=> 'order3762',
+	'order_id' 			=> uniqid(),
 	'gross_amount' 	=> 200000
 );
 
