@@ -1,13 +1,6 @@
 <?php
-// TODO: change with your actual server_key that can be found on Merchant Administration Portal (MAP)
-$server_key = "";
 
-// TODO : change to production URL for your production Environment
-// sandbox/development/testing environment:
-$endpoint = "https://api.sandbox.veritrans.co.id/v2/charge";
-// production environment:
-//$endpoint = "https://api.sandbox.veritrans.co.id/v2/charge";
-
+include('config.php');
 
 $transaction_details = array(
 	'order_id' 			=> uniqid(),
@@ -83,11 +76,11 @@ $json_transaction_data = json_encode($transaction_data);
 //	Content-Type : application/json
 //	Accept: application/json
 // 	Basic Auth using server_key
-$request = curl_init($endpoint);
+$request = curl_init(Config::ENDPOINT);
 curl_setopt($request, CURLOPT_CUSTOMREQUEST, "POST");
 curl_setopt($request, CURLOPT_POSTFIELDS, $json_transaction_data);
 curl_setopt($request, CURLOPT_RETURNTRANSFER, true);
-$auth = sprintf('Authorization: Basic %s', base64_encode($server_key.':'));
+$auth = sprintf('Authorization: Basic %s', base64_encode(Config::SERVER_KEY.':'));
 curl_setopt($request, CURLOPT_HTTPHEADER, array(
     'Content-Type: application/json',
 	'Accept: application/json',
