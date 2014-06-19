@@ -56,13 +56,13 @@ $customer_details = array(
 	);
 
 // Data yang akan dikirim untuk request redirect_url.
-// Uncomment 'secure' => true jika transaksi ingin diproses dengan 3DSecure.
+// Uncomment 'credit_card_3d_secure' => true jika transaksi ingin diproses dengan 3DSecure.
 $transaction_data = array(
 	'payment_type' 			=> 'vtweb', 
 	'vtweb' 						=> array(
-		'enabled_payments' 	=> ['credit_card']
+		'enabled_payments' 	=> ['credit_card'],
+		// 'credit_card_3d_secure' => true
 	),
-	//'secure'				=> true,
 	'transaction_details'=> $transaction_details,
 	'item_details' 			 => $items,
 	'customer_details' 	 => $customer_details
