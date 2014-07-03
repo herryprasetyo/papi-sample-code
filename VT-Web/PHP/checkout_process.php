@@ -80,6 +80,7 @@ $request = curl_init(Config::ENDPOINT);
 curl_setopt($request, CURLOPT_CUSTOMREQUEST, "POST");
 curl_setopt($request, CURLOPT_POSTFIELDS, $json_transaction_data);
 curl_setopt($request, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($request, CURLOPT_SSL_VERIFYPEER, false);
 $auth = sprintf('Authorization: Basic %s', base64_encode(Config::SERVER_KEY.':'));
 curl_setopt($request, CURLOPT_HTTPHEADER, array(
     'Content-Type: application/json',
