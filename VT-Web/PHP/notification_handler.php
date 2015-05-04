@@ -4,7 +4,7 @@ include('config.php');
 
 //Contoh untuk menangani HTTP (POST) notifikasi yang dikirim Veritrans
 $json_result = file_get_contents('php://input');
-$result = json_decode($json_result, true);
+$result = json_decode($json_result);
 
 error_log("Menerima notifikasi dari Veritrans: ");
 error_log($json_result);
